@@ -5,18 +5,22 @@ import AboutBoxMain from '../components/aboutboxmain';
 import Review from '../components/review';
 
 function About() {
+
   return (
     <div className="About">
           <AboutBoxMain></AboutBoxMain>
           <Review style = {{ margin: '50px'}}></Review>
           <div style = {{ marginTop: '50px'}}>
-            <h2>Who are the founders of LITTERALLY!?</h2>
-            <p>Yousuf Ahmed: CEO and co-founder of LITTERALLY</p>
-            <p>Marty Mcfly: CTO and co-founder of LITTERALLY</p>
-            <p>Peter Parker: CMO and co-founder of LITTERALLY</p>
-            <p>Bruce Wayne: CFO and co-founder of LITTERALLY</p>
+            <h2>The Asians++ Team</h2>
+            <p>Team Members: Yousuf Ahmed, Will Baldwin, Kyle Deladia, Jason Liu</p>
+            <ul>
+              <a href='https://github.com/yousufaahmed'>Yousuf Ahmed</a>
+              <a href='https://github.com/William-Baldwin'>Will Baldwin</a>
+              <a href='https://github.com/threelyK'>Kyle Deladia</a>
+              <a href=''>Dariush Tomlinson</a>
+              <a href='https://github.com/JiaJasonLiu'>Jason Liu</a>
+            </ul>
           </div>
-          {/* me, x, y and z are the founders of LITTERALLY! */}
     </div>
   );
 }

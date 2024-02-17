@@ -5,7 +5,6 @@ import Header from './components/header';
 import Share from './components/share';
 import Home from './pages/Home';
 import About from './pages/About';
-import Contact from './pages/Contact';
 import Profile from './pages/Profile';
 import ItemPage from './pages/ItemPage';
 import Footer from './components/footer';

@@ -1,7 +1,8 @@
-import '../index.css';
-import '../home.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import '../index.css';
+// import '../home.css';
 import LoginBox from '../components/loginbox';
+import Header from '../components/header';
+
 
 function Home() {
   return (
