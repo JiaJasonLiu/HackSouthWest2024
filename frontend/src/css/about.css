@@ -1,0 +1,33 @@
+ul {
+    list-style-image: "./images/GitHub-Mark-ea2971cee799.png";
+}
+
+a {
+    color: black;
+   text-decoration: none; 
+}
+
+.About {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+}
+
+.memberInfoLeft {
+    background-color: rgb(248,249,250);
+    margin-top: 5%;
+    margin-bottom: 5%;
+
+    border: solid;
+    border-width: 1px;
+    border-left-width: 0;
+    border-color: black;
+
+    position: relative;
+    text-align: center;
+    
+}
+
+.nameLeft {
+    text-align: start;
+}
