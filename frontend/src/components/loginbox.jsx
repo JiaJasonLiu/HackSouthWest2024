@@ -1,5 +1,4 @@
-import '../index.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import '../index.css';
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 import {  useState } from "react";

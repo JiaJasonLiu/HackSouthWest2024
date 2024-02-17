@@ -1,5 +1,5 @@
-import '../index.css';
-import '../profile.css';
+// import '../index.css';
+// import '../profile.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect } from "react";
 import axios from "axios";
@@ -38,7 +38,7 @@ function Profile() {
     <div className="Home">
       <div>
         <h1 style = {{ margin: '50px' }}>Welcome {name}</h1>
-        <img className = 'pfpimage1' src = '../../images/pfp1.jpg' alt = 'img1'></img>
+        <img className = 'pfpimage1' src = '../images/logo192.png' alt = 'img1'></img>
         <h3>Point Count: {points}</h3>
       </div>
     </div>
