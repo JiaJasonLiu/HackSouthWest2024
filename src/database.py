@@ -8,10 +8,32 @@
 
 import csv
 
+def delete_row_by_id(id_to_remove : int):
+    """Deletes a row from the database by the ID provided"""
+
+    #Reads the data
+    with open("./database.csv", "r", encoding="UTF-8") as csv_fp:
+        reader = csv.reader(csv_fp)
+
+        data = []
+
+        for row in reader:
+            data.append(row)
+
+    for row in data:
+        if int(row[0]) == id_to_remove:
+            data.remove(row)
+
+    #Writes new data to the file
+    with open("./database.csv", "w", encoding="UTF-8", newline='') as csv_fp:
+        writer = csv.writer(csv_fp)
+
+        writer.writerows(data)
+
 def append_to_database(data_dict):
     """Appends a row to the end of the database"""
 
-    with open("database.csv", "r", encoding="UTF-8") as csv_fp:
+    with open("./database.csv", "r", encoding="UTF-8") as csv_fp:
         reader = csv.reader(csv_fp)
 
         data = []
