@@ -4,19 +4,12 @@ import json
 from flask import Flask, render_template, request
 import server_funcs
 
-app = Flask(__name__, template_folder="../frontend", static_folder="../frontend")
-
-@app.route("/")
-def send_frontend():
-    """Serves the frontend to the client - might need replacing during integration"""
-
-    return render_template("/public/index.html")
+app = Flask(__name__)
 
 @app.route("/get_stock_price")
 def get_stock_price():
     """Handles the get_stock_price API call"""
     response_data = server_funcs.get_stock_info()
-
     return json.dumps(response_data)
 
 @app.route("/send_user")
@@ -27,4 +20,4 @@ def recive_server_data():
     return json.dumps(1)
 
 if __name__ == ("__main__"):
-    app.run()
+    app.run(debug=True, port = '3000')
