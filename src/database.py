@@ -57,6 +57,26 @@ def append_to_database(database_path : str, data_dict):
 
         writer.writerows(data)
 
+def append_to_database_by_position(database_path : str, username : str, data_dict:dict):
+    """Appends to database, unless it already exists. Then modify it"""
+
+    with open(database_path, "r", encoding="UTF-8") as csv_fp:
+        reader = csv.reader(csv_fp)
+
+        data = []
+
+        for row in reader:
+            data.append(row)
+
+    for i in range(len(data)):
+        if data[i][0] == username:
+            data[i] = data_dict.values()
+
+            return
+        
+    append_to_database(database_path, data_dict)
+
+
 def read_row_by_username(database_path : str, username : str):
     """Reads a row by its id, returns 0 if the record does not exist"""
 
