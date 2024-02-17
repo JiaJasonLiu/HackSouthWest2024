@@ -1,8 +1,6 @@
 import '../index.css';
 import '../about.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import AboutBoxMain from '../components/aboutboxmain';
-import Review from '../components/review';
 
 function About() {
 
