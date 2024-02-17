@@ -20,7 +20,7 @@ function LoginBox() {
 
         const configuration = {
             method: "post",
-            url: "http://localhost:3000/login",
+            url: "http://localhost:3001/login",
             data: {
               email,
               password,

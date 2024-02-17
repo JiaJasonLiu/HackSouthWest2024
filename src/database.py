@@ -7,11 +7,21 @@
 
 import csv
 
-def delete_row_by_id(id_to_remove : int):
+def init_database(database_path):
+    """Creates a database if it does not already exist"""
+
+    try:
+        fp = open(database_path, "x", encoding="UTF-8")
+        fp.close()
+    finally:
+        pass
+    
+
+def delete_row_by_id(database_path : str, id_to_remove : int):
     """Deletes a row from the database by the ID provided"""
 
     #Reads the data
-    with open("./database.csv", "r", encoding="UTF-8") as csv_fp:
+    with open(database_path, "r", encoding="UTF-8") as csv_fp:
         reader = csv.reader(csv_fp)
 
         data = []
@@ -24,15 +34,15 @@ def delete_row_by_id(id_to_remove : int):
             data.remove(row)
 
     #Writes new data to the file
-    with open("./database.csv", "w", encoding="UTF-8", newline='') as csv_fp:
+    with open(database_path, "w", encoding="UTF-8", newline='') as csv_fp:
         writer = csv.writer(csv_fp)
 
         writer.writerows(data)
 
-def append_to_database(data_dict):
+def append_to_database(database_path : str, data_dict):
     """Appends a row to the end of the database"""
 
-    with open("./database.csv", "r", encoding="UTF-8") as csv_fp:
+    with open(database_path, "r", encoding="UTF-8") as csv_fp:
         reader = csv.reader(csv_fp)
 
         data = []
@@ -40,31 +50,17 @@ def append_to_database(data_dict):
         for row in reader:
             data.append(row)
 
-    with open("./database.csv", "w", encoding="UTF-8", newline='') as csv_fp:
+    with open(database_path, "w", encoding="UTF-8", newline='') as csv_fp:
         writer = csv.writer(csv_fp)
 
         data.append(data_dict.values())
 
         writer.writerows(data)
 
-def read_row_by_id(id_to_find : int):
-    """Reads a row by its id, returns 0 if the record does not exist"""
+def append_to_database_by_position(database_path : str, username : str, data_dict:dict):
+    """Appends to database, unless it already exists. Then modify it"""
 
-    with open("./database.csv", "r", encoding="UTF-8") as csv_fp:
-        reader = csv.reader(csv_fp)
-
-        for row in reader:
-            if int(row[0]) == id_to_find:
-                return row
-
-    return 0
-
-def get_unused_id():
-    """get some new id that is not currently being used"""
-
-    unused_id = 0
-
-    with open("database.csv", "r", encoding="UTF-8") as csv_fp:
+    with open(database_path, "r", encoding="UTF-8") as csv_fp:
         reader = csv.reader(csv_fp)
 
         data = []
@@ -72,13 +68,54 @@ def get_unused_id():
         for row in reader:
             data.append(row)
 
-    condition = True
-    while condition:
-        unused_id = unused_id + 1
-        condition = False
-        for row in data:
+    for i in range(len(data)):
+        if data[i][0] == username:
+            data[i] = data_dict.values()
 
-            if int(row[0]) == unused_id:
-                condition = True
+            with open(database_path, "w", encoding="UTF-8", newline='') as csv_fp:
+                writer = csv.writer(csv_fp)
 
-    return unused_id
+                data.append(data_dict.values())
+
+                writer.writerows(data)
+
+            return
+        
+    append_to_database(database_path, data_dict)
+
+
+def read_row_by_username(database_path : str, username : str):
+    """Reads a row by its id, returns 0 if the record does not exist"""
+
+    with open(database_path, "r", encoding="UTF-8") as csv_fp:
+        reader = csv.reader(csv_fp)
+
+        for row in reader:
+            if row[0] == username:
+                return row
+
+    return 0
+
+# def get_unused_id(database_path : str,):
+#     """get some new id that is not currently being used"""
+
+#     unused_id = 0
+
+#     with open(database_path, "r", encoding="UTF-8") as csv_fp:
+#         reader = csv.reader(csv_fp)
+
+#         data = []
+
+#         for row in reader:
+#             data.append(row)
+
+#     condition = True
+#     while condition:
+#         unused_id = unused_id + 1
+#         condition = False
+#         for row in data:
+
+#             if int(row[0]) == unused_id:
+#                 condition = True
+
+#     return unused_id
