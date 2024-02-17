@@ -36,4 +36,8 @@ def recive_data_from_client(data):
     #Writes the data to the database
     database.append_to_database(data)
 
-    
+def user_mistake(data):
+    """Called when the user makes a mistake, logs the mistake"""
+
+def get_final_report(data):
+    """Called when the client requests the final report"""

@@ -19,5 +19,19 @@ def recive_server_data():
 
     return json.dumps(1)
 
+@app.route("/user_mistake", methods=["POST"])
+def user_made_mistake():
+    """For when the user makes a mistake that needs to be logged"""
+    server_funcs.user_mistake(request.args)
+
+    return json.dumps(1)
+
+@app.route("/generate_final_report", methods=["POST"])
+def final_report():
+    """Gets the final failure report for the client"""
+    response_data = server_funcs.get_final_report(request.args)
+
+    return json.dumps(response_data)
+
 if __name__ == ("__main__"):
     app.run(debug=True, port = '3000')
