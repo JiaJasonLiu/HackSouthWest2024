@@ -6,13 +6,13 @@ import server_funcs
 
 app = Flask(__name__)
 
-@app.route("/get_stock_price")
+@app.route("/get_stock_price", methods=["GET"])
 def get_stock_price():
     """Handles the get_stock_price API call"""
     response_data = server_funcs.get_stock_info()
     return json.dumps(response_data)
 
-@app.route("/send_user")
+@app.route("/send_user", methods=["POST"])
 def recive_server_data():
     """Handles storing the data in the database"""
     server_funcs.recive_data_from_client(request.args)
