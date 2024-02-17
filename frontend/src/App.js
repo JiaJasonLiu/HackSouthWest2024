@@ -7,7 +7,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Profile from './pages/Profile';
 import Footer from './components/footer';
-// import LoginSignUp from './pages/loginSignUp';
+import Login from './pages/login';
 // import ProtectedRoutes from './pages/protectedRoutes';
 
 function App() {
@@ -22,8 +22,7 @@ function App() {
             {/* <Route path='/contact' element={<Contact/>} /> */}
             <Route path='/profile' element={<Profile/>} />
             {/* <ProtectedRoutes path="/auth" element={<Profile/>} /> */}
-            {/* <Route path='/item' element={<ItemPage/>} />
-            <Route path='/loginsignup' element={<LoginSignUp/>} /> */}
+            <Route path='/login' element={<Login/>}></Route>
           </Routes>
         </Router>
         <Share></Share>
