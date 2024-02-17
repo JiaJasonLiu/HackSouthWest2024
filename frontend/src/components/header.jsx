@@ -38,7 +38,7 @@ function Header() {
   return (
     <Navbar sticky = "top" bg = 'light' variant = 'light'>
       <Container>
-        <Navbar.Brand href="/">EXCS BANK</Navbar.Brand>
+        <Navbar.Brand href="/">Asians++ Trading</Navbar.Brand>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
           <Nav.Link href="/">Home</Nav.Link>
