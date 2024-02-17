@@ -2,9 +2,12 @@
 
 import json
 from flask import Flask, render_template, request
+from flask_cors import CORS
+
 import server_funcs
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/get_stock_price", methods=["GET"])
 def get_stock_price():
@@ -12,10 +15,10 @@ def get_stock_price():
     response_data = server_funcs.get_stock_info()
     return json.dumps(response_data)
 
-@app.route("/send_user", methods=["POST"])
+@app.route("/login", methods=["POST"])
 def recive_server_data():
     """Handles storing the data in the database"""
-    server_funcs.recive_data_from_client(request.args)
+    server_funcs.recive_data_from_client(request.json)
 
     return json.dumps(1)
 
@@ -34,4 +37,4 @@ def final_report():
     return json.dumps(response_data)
 
 if __name__ == ("__main__"):
-    app.run(debug=True, port = '3000')
+    app.run(debug=True, port = '3001')

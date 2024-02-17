@@ -16,7 +16,7 @@ function SignUpBox() {
         e.preventDefault();
         const configuration = {
             method: "post",
-            url: "http://localhost:3000/register",
+            url: "http://localhost:3001/register",
             data: {
               email,
               password,

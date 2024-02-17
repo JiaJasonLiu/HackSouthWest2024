@@ -69,26 +69,26 @@ def read_row_by_username(database_path : str, username : str):
 
     return 0
 
-def get_unused_id(database_path : str,):
-    """get some new id that is not currently being used"""
+# def get_unused_id(database_path : str,):
+#     """get some new id that is not currently being used"""
 
-    unused_id = 0
+#     unused_id = 0
 
-    with open(database_path, "r", encoding="UTF-8") as csv_fp:
-        reader = csv.reader(csv_fp)
+#     with open(database_path, "r", encoding="UTF-8") as csv_fp:
+#         reader = csv.reader(csv_fp)
 
-        data = []
+#         data = []
 
-        for row in reader:
-            data.append(row)
+#         for row in reader:
+#             data.append(row)
 
-    condition = True
-    while condition:
-        unused_id = unused_id + 1
-        condition = False
-        for row in data:
+#     condition = True
+#     while condition:
+#         unused_id = unused_id + 1
+#         condition = False
+#         for row in data:
 
-            if int(row[0]) == unused_id:
-                condition = True
+#             if int(row[0]) == unused_id:
+#                 condition = True
 
-    return unused_id
+#     return unused_id

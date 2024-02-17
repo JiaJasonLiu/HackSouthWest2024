@@ -20,7 +20,7 @@ function Profile() {
     // set configurations for the API call here
     const configuration = {
       method: "get",
-      url: "http://localhost:3000/profile",
+      url: "http://localhost:3001/profile",
       headers: {
         Authorization: `Bearer ${token}`,
       },
