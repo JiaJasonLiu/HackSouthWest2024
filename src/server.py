@@ -18,7 +18,7 @@ def get_stock_price():
 @app.route("/login", methods=["POST"])
 def recive_server_data():
     """Handles storing the data in the database"""
-    server_funcs.recive_data_from_client(request.json)
+    server_funcs.recive_data_from_client("userData.csv", request.json)
 
     return json.dumps(1)
 

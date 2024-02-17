@@ -1,14 +1,14 @@
-import '../index.css';
-import '../about.css';
+// import '../index.css';
+// import '../about.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import AboutBoxMain from '../components/aboutboxmain';
+// import AboutBoxMain from '../components/aboutboxmain';
 import Review from '../components/review';
 
 function About() {
 
   return (
     <div className="About">
-          <AboutBoxMain></AboutBoxMain>
+          {/* <AboutBoxMain></AboutBoxMain> */}
           <Review style = {{ margin: '50px'}}></Review>
           <div style = {{ marginTop: '50px'}}>
             <h2>The Asians++ Team</h2>

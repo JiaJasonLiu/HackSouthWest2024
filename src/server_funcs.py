@@ -28,11 +28,12 @@ def get_stock_info():
 
     return stockData
 
-def recive_data_from_client(data):
+def recive_data_from_client(databaseName, data):
     """Recives data about the client and stores it in the database"""
+    database.init_database(databaseName)
     new_data = {}
     new_data = data.copy()
-    database.append_to_database("database.csv",new_data)
+    database.append_to_database(databaseName,new_data)
 
 def user_mistake(data):
     """Called when the user makes a mistake, logs the mistake"""
