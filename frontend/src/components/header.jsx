@@ -36,7 +36,7 @@ function Header() {
   };
 
   return (
-    <Navbar sticky = "top" bg = 'light' variant = 'light'>
+    <Navbar class='navbar' sticky = "top" bg = '--bs-primary-bg-subtle' variant = 'dark' >
       <Container>
         <Navbar.Brand href="/">Asians++ Trading</Navbar.Brand>
         <Navbar.Collapse id="basic-navbar-nav">

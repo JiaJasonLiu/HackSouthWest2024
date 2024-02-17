@@ -1,16 +1,14 @@
-ul {
-    list-style-image: "./images/GitHub-Mark-ea2971cee799.png";
+a {
+    color: #041c34;
 }
 
-a {
-    color: black;
-   text-decoration: none; 
+.Disclaimer {
+    color: red;
 }
 
 .About {
     position: absolute;
     width: 100%;
-    text-align: center;
 }
 
 .memberInfo {
