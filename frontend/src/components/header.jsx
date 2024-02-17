@@ -50,7 +50,7 @@ function Header() {
         </Navbar.Collapse>
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text style = {{paddingRight: "10px"}}>{name}</Navbar.Text>
-          <Nav.Link onClick={handleClick} href="/loginSignUp">{signIn}</Nav.Link>
+          <Nav.Link onClick={handleClick} href="/login">{signIn}</Nav.Link>
         </Navbar.Collapse>
       </Container>
     </Navbar>
