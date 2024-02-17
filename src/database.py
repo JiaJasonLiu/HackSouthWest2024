@@ -72,6 +72,13 @@ def append_to_database_by_position(database_path : str, username : str, data_dic
         if data[i][0] == username:
             data[i] = data_dict.values()
 
+            with open(database_path, "w", encoding="UTF-8", newline='') as csv_fp:
+                writer = csv.writer(csv_fp)
+
+                data.append(data_dict.values())
+
+                writer.writerows(data)
+
             return
         
     append_to_database(database_path, data_dict)
