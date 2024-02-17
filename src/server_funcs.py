@@ -7,5 +7,5 @@ def get_stock_info():
 
 def recive_data_from_client(data):
     """Stores data about the user"""
-    
+
     return 0
