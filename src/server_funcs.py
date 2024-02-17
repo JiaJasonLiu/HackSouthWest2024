@@ -29,15 +29,17 @@ def get_stock_info():
 
 def recive_data_from_client(data):
     """Recives data about the client and stores it in the database"""
-    new_id = database.get_unused_id()
+    new_id = database.get_unused_id("database.csv")
     #Adds the ID to the front of the dict
     data.update({"id" : new_id})
 
     #Writes the data to the database
-    database.append_to_database(data)
+    database.append_to_database("database.csv",data)
 
 def user_mistake(data):
     """Called when the user makes a mistake, logs the mistake"""
 
 def get_final_report(data):
     """Called when the client requests the final report"""
+
+    return 0

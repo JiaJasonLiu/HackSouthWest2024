@@ -7,11 +7,21 @@
 
 import csv
 
-def delete_row_by_id(id_to_remove : int):
+def init_database(database_path):
+    """Creates a database if it does not already exist"""
+
+    try:
+        fp = open(database_path, "x", encoding="UTF-8")
+        fp.close()
+    finally:
+        pass
+    
+
+def delete_row_by_id(database_path : str, id_to_remove : int):
     """Deletes a row from the database by the ID provided"""
 
     #Reads the data
-    with open("./database.csv", "r", encoding="UTF-8") as csv_fp:
+    with open(database_path, "r", encoding="UTF-8") as csv_fp:
         reader = csv.reader(csv_fp)
 
         data = []
@@ -24,15 +34,15 @@ def delete_row_by_id(id_to_remove : int):
             data.remove(row)
 
     #Writes new data to the file
-    with open("./database.csv", "w", encoding="UTF-8", newline='') as csv_fp:
+    with open(database_path, "w", encoding="UTF-8", newline='') as csv_fp:
         writer = csv.writer(csv_fp)
 
         writer.writerows(data)
 
-def append_to_database(data_dict):
+def append_to_database(database_path : str, data_dict):
     """Appends a row to the end of the database"""
 
-    with open("./database.csv", "r", encoding="UTF-8") as csv_fp:
+    with open(database_path, "r", encoding="UTF-8") as csv_fp:
         reader = csv.reader(csv_fp)
 
         data = []
@@ -40,17 +50,17 @@ def append_to_database(data_dict):
         for row in reader:
             data.append(row)
 
-    with open("./database.csv", "w", encoding="UTF-8", newline='') as csv_fp:
+    with open(database_path, "w", encoding="UTF-8", newline='') as csv_fp:
         writer = csv.writer(csv_fp)
 
         data.append(data_dict.values())
 
         writer.writerows(data)
 
-def read_row_by_id(id_to_find : int):
+def read_row_by_id(database_path : str, id_to_find : int):
     """Reads a row by its id, returns 0 if the record does not exist"""
 
-    with open("./database.csv", "r", encoding="UTF-8") as csv_fp:
+    with open(database_path, "r", encoding="UTF-8") as csv_fp:
         reader = csv.reader(csv_fp)
 
         for row in reader:
@@ -59,12 +69,12 @@ def read_row_by_id(id_to_find : int):
 
     return 0
 
-def get_unused_id():
+def get_unused_id(database_path : str,):
     """get some new id that is not currently being used"""
 
     unused_id = 0
 
-    with open("database.csv", "r", encoding="UTF-8") as csv_fp:
+    with open(database_path, "r", encoding="UTF-8") as csv_fp:
         reader = csv.reader(csv_fp)
 
         data = []
