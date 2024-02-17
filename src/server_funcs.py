@@ -21,7 +21,6 @@ def get_stock_info():
     data = json.loads(response.text)
     stockData = dict()
     for company in data['quoteResponse']['result']:
-        # print("this is company", company)
         companyData = [str(company['regularMarketPrice']), str(company['regularMarketChange']), str(company['regularMarketChangePercent'])]
         # price;change;percentageChange
         stockData[company['longName']] = ";".join(companyData)
