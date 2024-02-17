@@ -30,8 +30,7 @@ def get_stock_info():
 def recive_data_from_client(data):
     """Recives data about the client and stores it in the database"""
     new_id = database.get_unused_id("database.csv")
-    new_data = {}
-    new_data = data.copy()
+    new_data = dict(data)
     #Adds the ID to the front of the dict
     new_data.update({"id" : new_id})
 
