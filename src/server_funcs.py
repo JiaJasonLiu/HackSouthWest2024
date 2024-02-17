@@ -6,7 +6,7 @@ import database
 
 def get_stock_info():
     """Returns stock info dict to be sent to server"""
-    
+
     url = "https://yh-finance.p.rapidapi.com/market/v2/get-quotes"
 
     querystring = {"region":"US","symbols":"AMD,IBM,AAPL"}
@@ -17,7 +17,7 @@ def get_stock_info():
     }
 
     response = requests.get(url, headers=headers, params=querystring)
-    
+
     data = json.loads(response.text)
     stockData = dict()
     for company in data['quoteResponse']['result']:
@@ -35,7 +35,7 @@ def recive_data_from_client(data):
     new_data.update({"id" : new_id})
 
     #Writes the data to the database
-    database.append_to_database("database.csv",new_data)
+    database.append_to_database("database.csv", new_data)
 
 def user_mistake(data):
     """Called when the user makes a mistake, logs the mistake"""

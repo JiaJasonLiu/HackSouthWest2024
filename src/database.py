@@ -57,14 +57,14 @@ def append_to_database(database_path : str, data_dict):
 
         writer.writerows(data)
 
-def read_row_by_id(database_path : str, id_to_find : int):
+def read_row_by_username(database_path : str, username : str):
     """Reads a row by its id, returns 0 if the record does not exist"""
 
     with open(database_path, "r", encoding="UTF-8") as csv_fp:
         reader = csv.reader(csv_fp)
 
         for row in reader:
-            if int(row[0]) == id_to_find:
+            if row[0] == username:
                 return row
 
     return 0
