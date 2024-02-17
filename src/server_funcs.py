@@ -2,6 +2,7 @@
 import requests
 import json
 import get_api_key
+import database
 
 def get_stock_info():
     """Returns stock info dict to be sent to server"""
@@ -25,3 +26,14 @@ def get_stock_info():
         stockData[company['longName']] = ";".join(companyData)
     
     return stockData
+
+def recive_data_from_client(data):
+    """Recives data about the client and stores it in the database"""
+    new_id = database.get_unused_id()
+    #Adds the ID to the front of the dict
+    data.update({"id" : new_id})
+
+    #Writes the data to the database
+    database.append_to_database(data)
+
+    
