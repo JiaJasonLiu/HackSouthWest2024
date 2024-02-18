@@ -63,6 +63,7 @@ function LoginBox() {
                     type="password" 
                     name="password"
                     value={password}
+                    minLength="8"
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Password" />
                 </Form.Group>
