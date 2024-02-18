@@ -2,6 +2,7 @@ import '../css/index.css';
 import '../css/home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ContentCard from '../components/contentCard';
+import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
@@ -36,12 +37,12 @@ function AboutBox(){
         <div className =  'centered' style={{ color: '#000000'}}>
              <div style = {{ marginTop: '1%'}}>
               <div className='TeamInfo'>
-                <img src={UoE_logo} alt='University of Exeter Logo' width='200px' />
-                <div className='border'>
-                  <h2>The Asians++</h2>
-                  <h4>Team Members</h4>
+                <img id='UoE' src={UoE_logo} alt='University of Exeter Logo' width='200px' />
+                <div className='border teamName'>
+                    <h2>The Asians++</h2>
+                    <h4>Team Members</h4>
                 </div>
-                <img src={UoB_logo} alt='University of Bath Logo' width='200px' height='82px' />
+                <img id='UoB' src={UoB_logo} alt='University of Bath Logo' width='200px' height='82px' />
               </div>
 
               <div className='memberInfoCard'>
@@ -51,7 +52,6 @@ function AboutBox(){
                   <Col><ContentCard profileImage={imgList[2]} member={memberList[2]} text={textList[2]} link={gitLink[2]}></ContentCard></Col>
                   <Col><ContentCard profileImage={imgList[3]} member={memberList[3]} text={textList[3]} link={gitLink[3]}></ContentCard></Col>
                   <Col><ContentCard profileImage={imgList[4]} member={memberList[4]} text={textList[4]} link={gitLink[4]}></ContentCard></Col>
-                  
                 </Row>
               </div>
 

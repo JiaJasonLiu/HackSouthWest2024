@@ -7,7 +7,7 @@ import AboutBox from '../components/aboutBox';
 function About() {
 
   return (
-    <div className="About centered text-centered">
+    <div className="centered text-centered">
       <AboutBox></AboutBox>
     </div>
   );
