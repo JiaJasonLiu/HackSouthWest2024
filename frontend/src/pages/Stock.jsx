@@ -12,8 +12,13 @@ import axios from 'axios';
 const baseURL = "http://localhost:3001/get_stock_price"
 
 function Stock() {
-  
   const [post, setPost] = React.useState(null);
+
+  var stockName
+  var stockPrice
+  var stockChange
+  var stockChangePercent
+
   var stock = window.location.href.split("=")[1]
 
   React.useEffect(() => {
@@ -21,12 +26,6 @@ function Stock() {
       setPost(response.data);
     });
   }, []);
-
-  var stockName
-  var stockPrice
-  var stockChange
-  var stockChangePercent
-
 
   if (!post) return null;
   for (const [key, value] of Object.entries(post)) {
@@ -42,37 +41,52 @@ function Stock() {
     }
   }
   const stockPriceDiscounted = (stockPrice * .80).toFixed(2)
-
-  return (
-    <div className="stock">
-      <div className='title1 container'>
-      <StockRotator></StockRotator>
+  if (stock === undefined){
+    return (
+      <div className="stock">
+        <div className='title1 container'>
+        <StockRotator></StockRotator>
+        </div>
+        <div className='container'>
+          <h1 className='centered title1'>CHOOSE A STOCK TO BUY!!!</h1>
+          <p className='stockName'>YOU WILL GET 20% DISCOUNT ON EVERYTHING</p>
+        </div>
+        <div className='stockInfo'>
+        </div>
       </div>
-      <div className='container'>
-        <h1 className='centered title1'>BUY YOUR {stock}!!!</h1>
+    );
+  } else {
+    return (
+      <div className="stock">
+        <div className='title1 container'>
+        <StockRotator></StockRotator>
+        </div>
+        <div className='container'>
+          <h1 className='centered title1'>BUY YOUR {stock}!!!</h1>
+        </div>
+        <div className='stockInfo'>
+          <Container className='stockInfo'>
+              <Row>
+                  <Col>
+                      <div>
+                          <b className='stockName'>{stockName}</b>
+                          <p className='stockInfo'>
+                            <b>Market Price: </b> {stockPrice}</p>
+                          <p className='stockInfo'>
+                            <b>Asia++ Price: </b> {stockPriceDiscounted} (-20%)</p>
+                          <p className='stockInfo'>{stockChange}</p>
+                          <p className='stockInfo'>({stockChangePercent}%)</p>
+                      </div>
+                  </Col>
+                  <Col>
+                      <img src="https://upload.wikimedia.org/wikipedia/commons/7/79/Line_chart.png" width="800" height="400" alt="graph-img"></img>
+                  </Col>
+              </Row>
+          </Container>
+        </div>
       </div>
-      <div className='stockInfo'>
-        <Container className='stockInfo'>
-            <Row>
-                <Col>
-                    <div>
-                        <b className='stockName'>{stockName}</b>
-                        <p className='stockInfo'>
-                          <b>Market Price: </b> {stockPrice}</p>
-                        <p className='stockInfo'>
-                          <b>Asia++ Price: </b> {stockPriceDiscounted} (-20%)</p>
-                        <p className='stockInfo'>{stockChange}</p>
-                        <p className='stockInfo'>({stockChangePercent}%)</p>
-                    </div>
-                </Col>
-                <Col>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/79/Line_chart.png" width="800" height="400" alt="graph-img"></img>
-                </Col>
-            </Row>
-        </Container>
-      </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default Stock;
