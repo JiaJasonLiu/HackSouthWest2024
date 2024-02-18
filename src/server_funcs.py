@@ -41,6 +41,6 @@ def recive_data_from_client(databaseName, data, username):
     """Recives data about the client and stores it in the database"""
     database.append_to_database_by_position(databaseName, username,data)
 
-def user_mistake(databaseName,data):
+def user_mistake(databaseName, mistake, data):
     """Adds a user mistake to the database, connected directly to API"""
-    database.append_to_database(databaseName, data)
+    database.append_to_database_by_position(databaseName, mistake, data)
