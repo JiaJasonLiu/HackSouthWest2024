@@ -41,6 +41,8 @@ def delete_row_by_id(database_path : str, id_to_remove : int):
 
 def append_to_database(database_path : str, data_dict):
     """Appends a row to the end of the database"""
+    if (data_dict == None):
+        return 
 
     with open(database_path, "r", encoding="UTF-8") as csv_fp:
         reader = csv.reader(csv_fp)
@@ -66,23 +68,15 @@ def append_to_database_by_position(database_path : str, username : str, data_dic
         data = []
 
         for row in reader:
-            data.append(row)
+            if row != [] and row[0] != username:
+                data.append(row)
+    
+    with open(database_path, "w", encoding="UTF-8", newline='') as csv_fp:
+        writer = csv.writer(csv_fp)
 
-    for i in range(len(data)):
-        if data[i][0] == username:
-            data[i] = data_dict.values()
+        data.append(data_dict.values())
 
-            with open(database_path, "w", encoding="UTF-8", newline='') as csv_fp:
-                writer = csv.writer(csv_fp)
-
-                data.append(data_dict.values())
-
-                writer.writerows(data)
-
-            return
-        
-    append_to_database(database_path, data_dict)
-
+        writer.writerows(data) 
 
 def read_row_by_username(database_path : str, username : str):
     """Reads a row by its id, returns 0 if the record does not exist"""
@@ -95,27 +89,3 @@ def read_row_by_username(database_path : str, username : str):
                 return row
 
     return 0
-
-# def get_unused_id(database_path : str,):
-#     """get some new id that is not currently being used"""
-
-#     unused_id = 0
-
-#     with open(database_path, "r", encoding="UTF-8") as csv_fp:
-#         reader = csv.reader(csv_fp)
-
-#         data = []
-
-#         for row in reader:
-#             data.append(row)
-
-#     condition = True
-#     while condition:
-#         unused_id = unused_id + 1
-#         condition = False
-#         for row in data:
-
-#             if int(row[0]) == unused_id:
-#                 condition = True
-
-#     return unused_id
