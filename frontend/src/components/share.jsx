@@ -7,7 +7,7 @@ const shareUrl = 'localHost:3000';
 
 function Share(){
     return(
-        <div className =  'centered' style={{ color: '#000000', padding: '50px' }}>
+        <div className =  'centered' style={{padding: '50px' }}>
             <h2 className = 'inputtitle'>Share to get 10% off your next Investment</h2>
             <EmailShareButton url = {shareUrl}>
             </EmailShareButton>
@@ -21,7 +21,6 @@ function Share(){
             <TwitterShareButton url = {shareUrl}>
             </TwitterShareButton>
             <TwitterIcon size = {40}/>
-
         </div>
     );
 }

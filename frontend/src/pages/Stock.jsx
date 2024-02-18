@@ -4,6 +4,10 @@ import StockRotator from '../components/stockRotator';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+import React from 'react';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 function Stock() {
   return (
@@ -23,6 +27,9 @@ function Stock() {
                         <p className='stockInfo'>ETH</p>
                         <p className='stockInfo'>£50000</p>
                         <p className='stockInfo'>(0.0014%)</p>
+                        <Button className='butt' variant="danger">BUY</Button>
+                        <Button className='butt' variant="danger">SELL</Button>
+
                     </div>
                 </Col>
                 <Col>
