@@ -1,9 +1,12 @@
 import '../css/index.css';
 import '../css/home.css';
+import '../css/popup.css'
 import StockRotator from '../components/stockRotator';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import 'reactjs-popup/dist/index.css';
+import PopupWin from '../components/popupWin';
 import React from 'react';
 // import 'reactjs-popup/dist/index.css';
 import axios from 'axios';
