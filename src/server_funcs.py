@@ -34,7 +34,6 @@ def get_stock_info():
         key = company['longName'] + ";" + companies[index]
         stockData[key] = ";".join(companyData)
         
-    print(stockData)
     return stockData
 
 def recive_data_from_client(databaseName, data, username):
