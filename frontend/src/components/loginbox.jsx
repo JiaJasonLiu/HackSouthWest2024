@@ -1,4 +1,4 @@
-// import '../index.css';
+import '../css/index.css';
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 import {  useState } from "react";
@@ -45,9 +45,9 @@ function LoginBox() {
     return (
         <div>
             <Form onSubmit={(e)=>handleSubmit(e)}>
-                <h2 style = {{color:"black", padding:"30px"}}>Login</h2>
+                <h2 style = {{padding:"30px"}}>Login</h2>
                 <Form.Group controlId="formBasicEmail1">
-                    <Form.Label>Email address</Form.Label>
+                    <Form.Label className='pad'>Email address</Form.Label>
                     <Form.Control 
                     type="email" 
                     name="email"
@@ -58,7 +58,7 @@ function LoginBox() {
 
                 {/* password */}
                 <Form.Group controlId="formBasicPassword1">
-                    <Form.Label>Password</Form.Label>
+                    <Form.Label className='pad'>Password</Form.Label>
                     <Form.Control 
                     type="password" 
                     name="password"
@@ -69,14 +69,16 @@ function LoginBox() {
                 </Form.Group>
 
                 {/* submit button */}
-                <Button variant="primary" type="submit">
-                    Sign In
-                </Button>
-                {login ? (
-                <p className="text-success">You Are Logged in Successfully</p>
-                ) : (
-                <p className="text-danger">You Are Not Logged in</p>
-                )}
+                <div className="submit">
+                    <Button variant="primary" type="submit">
+                        Sign In
+                    </Button>
+                    {login ? (
+                    <p className="text-success">You Are Logged in Successfully</p>
+                    ) : (
+                    <p className="text-danger">You Are Not Logged in</p>
+                    )}
+                </div>
             </Form>
         </div>
     );

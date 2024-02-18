@@ -1,7 +1,13 @@
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
+import axios from 'axios';
+import React from 'react';
+
+const baseURL = "/get_stock_price"
 
 function StockRotator() {
+
+    const [post, setPost] = React.useState(null);
 
     const responsive = {
         0: { items: 1 },
@@ -17,12 +23,23 @@ function StockRotator() {
         ["Bitcoin", "£50000"],
     ]
 
+    // React.useEffect(() => {
+    //     axios.get(baseURL).then((response) => {
+    //       setPost(response.data);
+    //     });
+    //   }, []);
+    
+    //   if (!post) return null;
+
+    var stocks2 = post;
+
     const items = [
         <a className="item" data-value="1" href="/stocks/?stock={stock[0][0]}">
         {/* // <a className="item" data-value="1" href="/stocks" onclick="location.href=this.href+'?stock='+stocks[0][0]"> */}
             {/* <img className = 'pfpimage' src='../images/logo192.png' alt='imgHERE'></img> */}
             <h3>{stocks[0][0]}</h3>
             <h4>{stocks[0][1]}</h4>
+            <h5>{stocks2}</h5>
         </a>,
         <a className="item" data-value="1" href="/stocks">
             {/* <img className = 'pfpimage' src='../images/logo192.png' alt='imgHERE'></img> */}
