@@ -18,31 +18,32 @@ function StockRotator() {
     ]
 
     const items = [
-        <div className="item" data-value="1">
+        <a className="item" data-value="1" href="/stocks/?stock={stock[0][0]}">
+        {/* // <a className="item" data-value="1" href="/stocks" onclick="location.href=this.href+'?stock='+stocks[0][0]"> */}
             {/* <img className = 'pfpimage' src='../images/logo192.png' alt='imgHERE'></img> */}
             <h3>{stocks[0][0]}</h3>
             <h4>{stocks[0][1]}</h4>
-        </div>,
-        <div className="item" data-value="1">
+        </a>,
+        <a className="item" data-value="1" href="/stocks">
             {/* <img className = 'pfpimage' src='../images/logo192.png' alt='imgHERE'></img> */}
             <h3>{stocks[1][0]}</h3>
             <h4>{stocks[1][1]}</h4>
-        </div>,
-            <div className="item" data-value="1">
+        </a>,
+            <a className="item" data-value="1" href="/stocks">
             {/* <img className = 'pfpimage' src='../images/logo192.png' alt='imgHERE'></img> */}
             <h3>{stocks[2][0]}</h3>
             <h4>{stocks[2][1]}</h4>
-        </div>,
-            <div className="item" data-value="1">
+        </a>,
+            <a className="item" data-value="1" href="/stocks">
             {/* <img className = 'pfpimage' src='../images/logo192.png' alt='imgHERE'></img> */}
             <h3>{stocks[3][0]}</h3>
             <h4>{stocks[3][1]}</h4>
-        </div>,
-            <div className="item" data-value="1">
+        </a>,
+            <a className="item" data-value="1" href="/stocks">
             {/* <img className = 'pfpimage' src='../images/logo192.png' alt='imgHERE'></img> */}
             <h3>{stocks[4][0]}</h3>
             <h4>{stocks[4][1]}</h4>
-        </div>,
+        </a>,
     ]
 
     return(

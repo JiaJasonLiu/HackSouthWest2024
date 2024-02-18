@@ -8,6 +8,7 @@ import About from './pages/About';
 import Profile from './pages/Profile';
 import Footer from './components/footer';
 import Login from './pages/login';
+import Stock from './pages/Stock';
 // import ProtectedRoutes from './pages/protectedRoutes';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             {/* <Route path='/contact' element={<Contact/>} /> */}
             <Route path='/profile' element={<Profile/>} />
             {/* <ProtectedRoutes path="/auth" element={<Profile/>} /> */}
+            <Route path='/stocks' element={<Stock/>}></Route>
             <Route path='/login' element={<Login/>}></Route>
           </Routes>
         </Router>
