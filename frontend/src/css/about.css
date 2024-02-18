@@ -2,6 +2,22 @@ a {
     color: #041c34;
 }
 
+h2 {
+    text-align: center;
+    padding: 3%;
+    border: 5%;
+    color: aliceblue;
+    background-color: #041c34;
+}
+
+h4 {
+    padding-top: 4%;
+}
+
+#UoB {
+    margin-top: 1.75%;
+}
+
 .TeamInfo {
     margin-left: 10%;
     margin-right: 10%;
@@ -11,20 +27,14 @@ a {
     justify-content: space-evenly;
 }
 
-h2 {
-    text-align: center;
-    padding: 3%;
-    border: 5%;
-    color: aliceblue;
-    background-color: #041c34;
+.teamName {
+    display: flexbox;
+    flex-direction: column;
+    width: 25%;
 }
 
 .Disclaimer {
     color: red;
-}
-
-.About {
-    /*future usage*/
 }
 
 .memberInfoCard {
