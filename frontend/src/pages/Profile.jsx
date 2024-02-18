@@ -51,10 +51,11 @@ function Profile() {
             <h5>Positions</h5>
             {/*
             <ContentCard className='stock' member={'NVDA'} text={'Shares: 7.2 @$726.16'}></ContentCard>
-              <li>IBM - 1.2 Shares</li>
-              <li>AMD - 5 Shares</li>
-              NVDA - 7 Shares
             */}
+              <li>IBM - 1.2 Shares @ $200.00</li>
+              <li>AMD - 5 Shares @ $513.52</li>
+              <li>NVDA - 7 Shares @ $726.16</li>
+            
           </Col>
           <Col className='moneySaved border'>
             <h3>Money Saved:</h3>
