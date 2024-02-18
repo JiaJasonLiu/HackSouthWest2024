@@ -15,7 +15,6 @@ def init_database(database_path):
         fp.close()
     finally:
         pass
-    
 
 def delete_row_by_id(database_path : str, id_to_remove : int):
     """Deletes a row from the database by the ID provided"""
@@ -33,7 +32,7 @@ def delete_row_by_id(database_path : str, id_to_remove : int):
         if int(row[0]) == id_to_remove:
             data.remove(row)
 
-    #Writes new data to the file
+    #Writes new data to the file after row was deleted
     with open(database_path, "w", encoding="UTF-8", newline='') as csv_fp:
         writer = csv.writer(csv_fp)
 
@@ -44,6 +43,7 @@ def append_to_database(database_path : str, data_dict):
     if (data_dict == None):
         return 
 
+    #Reads the file into memory
     with open(database_path, "r", encoding="UTF-8") as csv_fp:
         reader = csv.reader(csv_fp)
 
@@ -52,6 +52,7 @@ def append_to_database(database_path : str, data_dict):
         for row in reader:
             data.append(row)
 
+    #Writes the data with the new data appended to the disk
     with open(database_path, "w", encoding="UTF-8", newline='') as csv_fp:
         writer = csv.writer(csv_fp)
 
@@ -64,6 +65,7 @@ def append_to_database_by_position(database_path : str, username : str, data_dic
     if username == "":
         return append_to_database(database_path, data_dict)
 
+    #Only reads data that is not empty or has the same username
     with open(database_path, "r", encoding="UTF-8") as csv_fp:
         reader = csv.reader(csv_fp)
 
@@ -73,6 +75,7 @@ def append_to_database_by_position(database_path : str, username : str, data_dic
             if row != [] and row[0] != username:
                 data.append(row)
     
+    #Writes the new data with the row appended to the database
     with open(database_path, "w", encoding="UTF-8", newline='') as csv_fp:
         writer = csv.writer(csv_fp)
 
@@ -86,8 +89,15 @@ def read_row_by_username(database_path : str, username : str):
     with open(database_path, "r", encoding="UTF-8") as csv_fp:
         reader = csv.reader(csv_fp)
 
+        #Only returns the row with the correct username
         for row in reader:
             if row[0] == username:
                 return row
 
     return 0
+
+def flush_database(database_path : str):
+    """Clears a database"""
+
+    with open(database_path, "w", encoding="UTF-8") as csvfp:
+        pass
