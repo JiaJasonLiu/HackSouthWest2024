@@ -1,0 +1,43 @@
+
+.profile {
+    display: flexbox;
+    flex-direction: column;
+    text-align: center;
+}
+
+.dashboard {
+    padding: 2%;
+
+    display: flexbox;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.positions {
+    width: 10%;
+    max-width: max-content;
+    padding: 2%;
+    margin: 1%;
+}
+
+.stock {
+    max-width: max-content;
+}
+
+.moneySaved {
+    display: flexbox;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 2%;
+    max-width: 45%;
+    max-height: max-content;
+}
+
+.portfolio {
+    padding: 2%;
+}
+
+.row {
+    justify-content: space-evenly;
+}

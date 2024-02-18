@@ -14,16 +14,13 @@ h4 {
     padding-top: 4%;
 }
 
-#UoB {
-    margin-top: 1.75%;
-}
-
 .TeamInfo {
     margin-left: 10%;
     margin-right: 10%;
 
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-evenly;
 }
 
