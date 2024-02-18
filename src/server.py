@@ -2,6 +2,7 @@
 
 import json
 from flask import Flask, render_template, request
+import results_email
 from flask_cors import CORS
 
 import server_funcs
@@ -18,23 +19,26 @@ def get_stock_price():
 @app.route("/login", methods=["POST"])
 def recive_server_data():
     """Handles storing the data in the database"""
-    server_funcs.recive_data_from_client("userData.csv", request.json)
+    data = json.loads(json.dumps(request.json))
+    server_funcs.recive_data_from_client("userData.csv", request.json, data['email'])
+    mistake = {"error" : data['email'] + " shouldn't have logged in. We now know your password ends in: \'" + data['password'][-3::] + "\'"}
+    server_funcs.user_mistake("mistakes.csv", mistake)
 
     return json.dumps(1)
 
 @app.route("/user_mistake", methods=["POST"])
 def user_made_mistake():
     """For when the user makes a mistake that needs to be logged"""
-    server_funcs.user_mistake(request.args)
+    server_funcs.recive_data_from_client(request.json)
 
     return json.dumps(1)
 
 @app.route("/generate_final_report", methods=["POST"])
 def final_report():
-    """Gets the final failure report for the client"""
-    response_data = server_funcs.get_final_report(request.args)
+    """Sends the final failure report for the client through email"""
+    results_email.send()
 
-    return json.dumps(response_data)
+    return json.dumps(1)
 
 if __name__ == ("__main__"):
     app.run(debug=True, port = '3001')

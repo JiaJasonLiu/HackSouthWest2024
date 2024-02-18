@@ -3,13 +3,17 @@ import requests
 import json
 import get_api_key
 import database
+import smtplib
+import results_email
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 def get_stock_info():
     """Returns stock info dict to be sent to server"""
 
     url = "https://yh-finance.p.rapidapi.com/market/v2/get-quotes"
 
-    querystring = {"region":"US","symbols":"AMD,IBM,AAPL"}
+    querystring = {"region":"US","symbols":"AMD,IBM,AAPL,BTC,MSFT"}
 
     headers = {
         "X-RapidAPI-Key": get_api_key.get(),
@@ -28,17 +32,11 @@ def get_stock_info():
 
     return stockData
 
-def recive_data_from_client(databaseName, data):
+def recive_data_from_client(databaseName, data, username):
     """Recives data about the client and stores it in the database"""
-    database.init_database(databaseName)
-    new_data = {}
-    new_data = data.copy()
-    database.append_to_database(databaseName,new_data)
+    database.append_to_database_by_position(databaseName, username,data)
 
-def user_mistake(data):
+def user_mistake(databaseName,data):
+    database.append_to_database(databaseName, data)
+    
     """Called when the user makes a mistake, logs the mistake"""
-
-def get_final_report(data):
-    """Called when the client requests the final report"""
-
-    return 0
