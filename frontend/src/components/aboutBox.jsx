@@ -1,6 +1,7 @@
 import '../css/index.css';
 import '../css/home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ContentCard from '../components/contentCard';
 import UoE_logo from '../images/UoE_logo.png';
 import UoB_logo from '../images/UoB_logo.gif';
 
@@ -16,7 +17,15 @@ function AboutBox(){
                 </div>
                 <img src={UoB_logo} alt='University of Bath Logo' width='200px' height='82px' />
               </div>
-            <div className='memberInfo contentLeft'>
+
+
+              <div className=''>
+                <ContentCard></ContentCard>
+              </div>
+
+
+
+            {/*<div className='memberInfo contentLeft'>
               <p>
                 <h6 className='nameLeft'>
                 <a href='https://github.com/yousufaahmed' target='_blank' rel="noreferrer noopener"><img src='https://img.icons8.com/?size=256&id=62856&format=png' width='20px' height='20px'/>
@@ -65,7 +74,8 @@ function AboutBox(){
                 </h6>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum beatae minima consectetur, repudiandae, vitae assumenda ab minus accusantium quidem commodi rem, ducimus provident aperiam numquam blanditiis! Illo facilis neque quas.
               </p>
-            </div>
+            </div> */}
+
             <p className='Disclaimer'>
               <b>Disclaimer:</b> This website is an educational tool to teach individuals about financial scams.
             </p>
