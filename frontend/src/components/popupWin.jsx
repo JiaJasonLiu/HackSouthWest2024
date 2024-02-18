@@ -27,6 +27,15 @@ function PopupWin(props) {
           error = new Error();
           console.error(error)
         });
+        const configurationSendEmail = {
+          method: "post",
+          url: "http://localhost:3001/generate_final_report",
+        };
+        axios(configurationSendEmail)
+        .catch((error) => {
+          error = new Error();
+          console.error(error)
+        });
       }
 
     return(

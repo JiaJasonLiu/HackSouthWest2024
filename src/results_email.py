@@ -183,7 +183,7 @@ def send():
     template = Template(html_template)
 
     # Render the template with data, including looping through 'items'
-    html_content = template.render(data)
+    new_html_template = template.render(data)
 
 
     sender_email = "hellosss1985@gmail.com"
@@ -195,7 +195,7 @@ def send():
                 message["Subject"] = "VIP EARLY ACCESS DEAL"
                 message["From"] = sender_email
                 message["To"] = line.strip()
-                html_content = MIMEText(get(), "html")
+                html_content = MIMEText(new_html_template, "html")
                 message.attach(html_content)
                 server_ssl.sendmail("hellosss1985@gmail.com", line.strip(), message.as_string())
     server_ssl.close()
