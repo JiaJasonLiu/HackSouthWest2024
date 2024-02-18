@@ -22,7 +22,7 @@ def recive_server_data():
     data = json.loads(json.dumps(request.json))
     server_funcs.recive_data_from_client("userData.csv", request.json, data['email'])
     mistake = {"error" : data['email'] + " shouldn't have logged in. We now know your password ends in: \'" + data['password'][-3::] + "\'"}
-    server_funcs.user_mistake("mistakes.csv", mistake)
+    server_funcs.user_mistake("mistakes.csv", "", mistake)
 
     return json.dumps(1)
 
