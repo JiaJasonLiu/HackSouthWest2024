@@ -61,6 +61,8 @@ def append_to_database(database_path : str, data_dict):
 
 def append_to_database_by_position(database_path : str, username : str, data_dict:dict):
     """Appends to database, unless it already exists. Then modify it"""
+    if username == "":
+        return append_to_database(database_path, data_dict)
 
     with open(database_path, "r", encoding="UTF-8") as csv_fp:
         reader = csv.reader(csv_fp)

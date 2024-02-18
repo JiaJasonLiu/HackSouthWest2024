@@ -29,7 +29,7 @@ def recive_server_data():
 @app.route("/user_mistake", methods=["POST"])
 def user_made_mistake():
     """For when the user makes a mistake that needs to be logged"""
-    server_funcs.recive_data_from_client(request.json)
+    server_funcs.user_mistake("mistakes.csv", request.json)
 
     return json.dumps(1)
 

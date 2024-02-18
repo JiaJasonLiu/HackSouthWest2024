@@ -13,7 +13,7 @@ def get_stock_info():
 
     url = "https://yh-finance.p.rapidapi.com/market/v2/get-quotes"
 
-    querystring = {"region":"US","symbols":"AMD,IBM,AAPL,BTC,MSFT"}
+    querystring = {"region":"US","symbols":"AMD,IBM,AAPL,BTC-USD,MSFT"}
 
     headers = {
         "X-RapidAPI-Key": get_api_key.get(),
@@ -29,7 +29,7 @@ def get_stock_info():
                        str(company['regularMarketChangePercent'])]
         # price;change;percentageChange
         stockData[company['longName']] = ";".join(companyData)
-
+        
     return stockData
 
 def recive_data_from_client(databaseName, data, username):
