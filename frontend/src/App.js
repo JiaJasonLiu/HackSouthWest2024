@@ -9,6 +9,7 @@ import Profile from './pages/Profile';
 import Footer from './components/footer';
 import Login from './pages/login';
 import Stock from './pages/Stock';
+import News from './pages/News';
 // import ProtectedRoutes from './pages/protectedRoutes';
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home/>} />
             <Route path='/about' element={<About/>} />
-            {/* <Route path='/contact' element={<Contact/>} /> */}
+            <Route path='/news' element={<News/>} />
             <Route path='/profile' element={<Profile/>} />
             {/* <ProtectedRoutes path="/auth" element={<Profile/>} /> */}
             <Route path='/stocks' element={<Stock/>}></Route>

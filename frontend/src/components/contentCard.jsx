@@ -1,17 +1,17 @@
-import Button from 'react-bootstrap/Button';
+
 import Card from 'react-bootstrap/Card';
 
-function ContentCard() {
+
+function ContentCard(props) {
   return (
     <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
+      <Card.Img variant="top" src={props.profileImage} width='250px' height='300px'/>
       <Card.Body>
-        <Card.Title>Member Name</Card.Title>
+        <a href={props.link} rel='noreferrer noopener' target='_blank'><img src='https://img.icons8.com/?size=256&id=62856&format=png' width='50px' height='50px'/></a>
+        <Card.Title>{props.member}</Card.Title>
         <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
+          {props.text}
         </Card.Text>
-        <Button variant="primary">GitHub</Button>
       </Card.Body>
     </Card>
   );
